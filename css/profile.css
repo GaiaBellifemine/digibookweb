@@ -1,0 +1,152 @@
+*{ /*css relativo a tutto il file in cui é incluso*/
+    margin:0; /*Nessun margine*/
+    padding:0;
+    box-sizing: border-box; /*Forma box per il profilo*/
+    font-family: 'Poppins', sans-serif;
+}
+body /*css relativo al body del file in cui é incluso*/
+{
+    font-family: 'Times New Roman', Times, serif; /*Famiglia di font utilizzato*/
+    font-size: 16px; /*Dimensione del font*/
+    color: #333; /*Colore del testo*/
+}
+
+.box /*css relativo al class box*/
+{
+    width: 80%; /*box avrá una larghezza pari a 80% della finestra*/
+    height: 660px; /*Una altezza di 660px*/
+    display:inline-block; /*Tipo di visualizzazione*/
+    margin: 50px 10%; /*Impostazione margini*/
+    box-shadow: 0 27px 87px rgba(0,0,0,0.37); /*Ombra sul box*/
+    border-radius: 25px; /*Box con bordi arrotondati con un raggio di 25px*/
+    overflow: hidden; /*Specifica cosa fare quando il contenuto supera la visualizzazione consentita*/
+}
+
+.box-img /*css relativo a class box-img ovvero l'immagine di box*/
+{
+    float:left; /*Allineata a sinistra*/
+    widows: 45%;
+}
+
+.share{ /* css relativo al contenuto del class share (bottone) */
+    display: block; /*Tipo di visualizzazione dei contenuti*/
+    width: 100%; /* Occupa tutta la larghezza consentita*/
+    border: none; /*Nessun bordo per il pulsante*/
+    background: linear-gradient(135deg, #71b7e6, #9b59b6); /*Colore con gradiente lineare*/
+    color: white; /*Colore principale testo bianco*/
+    padding: 14px 28px; /*Margini dal box-img*/
+    font-size: 16px; /*Dimensioni del font del bottone*/
+    cursor: pointer; /*Elemento cliccabile*/
+    text-align: center; /*Testo allineato centralmente*/
+    border-radius: 8px; /*Bottone arrotondato*/
+}
+
+.share:hover{ /*Specifica cosa accade quando il cursore passa su share*/
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+.nav /*css per la stilizzazione degli elementi in cima*/
+{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    float: left; /*Allineamento a sinistra*/
+}
+
+.box-text /*css per la stilizzazione degli elementi del div box-text*/
+{
+    width: 55%;
+    float:left;
+    padding-left: 35px;
+}
+
+.box-text h1 /*Il test h1 di box-text avrá le seguenti proprietá*/
+{
+    font-size: 25px; /*Dimensione font 25px*/
+    font-weight: bold; /*Grassetto*/
+    color: darkblue; /*Colore del testo*/
+    margin-bottom: 45px; /*Spazio dal div inferiore*/
+    margin-top: 4%; /*Spazio da sopra*/
+    text-align: center; /*Allineamento centrale*/
+}
+
+.box-text p /*Stilizzazione del tag p*/
+{
+    font-size: 14px;
+    font-weight: 400;
+    color: darkblue;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+table{ /*Stilizzazione della tabella per la visualizzazione della wishlist*/
+    border-collapse:collapse; /*Elimina lo spazio tra i bordi delle celle diverse*/
+    border-radius: 12px; /* Tabella con angoli arrotondati */
+    box-shadow: 0 5px 10px #e1e5ee; /*Ombra sullo sfondo */
+    background-color:white; /*Colore di background bianco */
+    text-align: left; /* Testo allineato a sinistra */
+    overflow: hidden; /*Specifica cosa avviene quando il contenuto supera il limite consentito: nascondi*/
+}
+
+thead{ /*Intestazione tabella "table head"*/
+    box-shadow: 0 5px 10px #e1e5ee; 
+}
+
+th{ /*Stilizzazione celle della tabella*/
+    padding: 1rem 2rem; /*Spazi fra le celle*/
+    max-width: 250px; /*Dimensione massima */
+    text-transform: uppercase; /*Il contenuto deve essere tutto in maiuscolo per una migliore visualizzazione*/
+    letter-spacing: 0.1rem; /*Spazio fra le lettere*/
+    font-size: 0.7rem; /*Dimensione del carattere*/
+    font-weight: 900; /*Spessore del carattere*/
+}
+
+td{ /*Dati della tabella*/
+    padding: 1rem;
+}
+
+a:link, a:visited { /*Anchor tag, specifica cosa avviene quando vengono visitati (giá cliccati)*/
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active { /*Specifica cosa avviene quando il cursore passa sul link/quando il link é attivo*/
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  }
+
+  /*Utilizzo del @media per una visualizzazione responsive*/
+  /*Quando la finestra raggiunge le dimensioni stabilite:*/
+  /*Modifica la visualizzazione degli elementi in modo che siano visualizzati anche in schermi piú piccoli*/
+  /*La tabella sará spostata al di sotto di box-img e anche i dati saranno modificati di conseguenza*/
+  @media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+
+    thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+    td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
+    td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+  }

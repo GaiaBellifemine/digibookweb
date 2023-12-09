@@ -1,0 +1,192 @@
+*{ /* css relativo a tutta la pagina in cui &egrave; incluso (homepage.php) */
+    margin: 0; /* Nessun margine per la pagina, nessuno spazio */
+    padding: 0; /* Combinato con margin aiuta a eliminare tutti gli spazi */
+    font-family: 'Poppins', sans-serif; /* Specifica della famiglia di font utilizzata */
+}
+
+body{ /* Parte css relativa al body della pagina in cui &egrave; incluso */
+    overflow: scroll; /* Specifica cosa deve succedere se gli elementi vanno oltre lo spazio consentito: aggiunge barra scorrimento */
+}
+
+.header{ /* css relativo alla classe header del file in cui &egrave; incluso */
+    min-height: 60vh; /* Altezza minima del div con classe header: lunghezza viewport percentuale, utile per il responsive design */
+    width: 100%; /* Occupa tutta la larghezza */
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(../images/cover.png); /* Immagine di background con specifica di colore gradiente lineare */
+    background-position: center; /* Posizione centrata per l'immagine */
+    background-size: cover; /* Occupa tutto lo spazio a disposizione */
+    position: relative; /* La posizione relativa impedisce eventuali cambiamenti, inibisce aggiunte come top, left align e simili */
+}
+
+nav{ /* css relativo al tag nav del file in cui &egrave; incluso */
+    display: flex; /* Direzione di visualizzazione elementi di nav */
+    padding: 0% 6%; /* Nessuno spazio percentuale verso l'alto, separa nav del 6% in orizzontale */
+    justify-content: space-between; /* Spazio tra gli elementi */
+    align-items: center; /* Oggetti allineati al centro */
+}
+
+nav img{ /*Tag img di nav */
+    width: 250px; /*Larghezza del logo navbar*/
+}
+
+.nav-links{ /* css relativo alla classe nav-links */
+    flex: 1; /* Come vengono visualizzati i link */
+    text-align: right; /*I link della navbar sono posizionati a destra */
+}
+
+.nav-links ul li{ /*Tag ul ed li per la stilizzazione dell'elenco di nav-links */
+    list-style: none; /* Nessuno stile predefinito */
+    display: inline-block; /* Tipo di visualizzazione elementi */
+    padding: 8px 12px; /* Spazio tra gli elementi */
+    position: relative; /* Posizione relativa */
+}
+
+.nav-links ul li a{ /*Include anche gli elementi anchor cliccabili */
+    color: #fff; /* Hanno un colore predefinito bianco */
+    text-decoration: none; /*Nessuna text-decoration: */
+    font-size: 17px; /*Dimensione del font */
+}
+
+.nav-links ul li::after{ /*Una volta che sono stata cliccata l'icona menu (modalit&agrave; responsive) */
+    content: ''; /*Contenuto vuoto */
+    width: 0%; /*Larghezza 0 */
+    height: 2px; /*ALtezza 2px*/
+    background: #f44336; /*Colore background menu*/
+    display: block; /*Tipo di visualizzazione*/
+    margin: auto; /*Setta automaticamente i margini*/
+    transition: 0.5s; /*Velocit&agrave; animazione transizione*/
+}
+
+.nav-links ul li:hover::after{ /*Quando ci si passa sopra */
+    width: 100%;
+}
+
+/*.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}*/
+
+nav .fa{ /*L'icona menu responsive &egrave; inizialmente non visualizzata */
+    display: none;
+}
+
+/*Utilizzo di @media per la gestione del responsive design*/
+@media(max-width: 700px){ /*Quando la finestra raggiunge una larghezza di 700px*/
+    .nav-links ul li{ /*Stilizzazione degli elementi di nav-links*/
+        display: block;
+    }
+    .nav-links{ /*nav-links inizialmente nascosto in posizione -200px*/
+        position: absolute;
+        background: #f44336;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+    nav .fa{ /*Icona mostrata e cliccabile (cursor pointer)*/
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 30px;
+    }
+}
+
+/*----Stilizzazione delle card per i libri----*/
+.books{ /*css per il div class books*/
+    width: 80%; /*Larghezza div */
+    margin: auto;
+    text-align: center; /*Allineati al centro*/
+    padding-top: 100px; /*Spazio tra div books e il precedente visualizzato sopra*/
+}
+h1{ /*Stilizzazione tag h1 (scritta) con dimensione 36px e spessore 600*/
+    font-size: 36px;
+    font-weight: 600;
+}
+
+p{ /*Stilizzazione tag p (scritta) con colore, dimensione font a 14px, spessore a 300*/
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.main{ /*Il container principale ha un margine del 2%*/
+    margin: 2%;
+}
+
+.cards{ /*css relativo ai div class cards per mostrare i libri*/
+    width: 25%; /*Larghezza del 25%*/
+    display: inline-block; /*Visualizzazzione tabellare*/
+    border-radius: 8px; /*Leggermente arrotondati con un raggio di 8px*/
+    margin: 30px; /*Margine di 30px*/
+    box-shadow: 2px 2px 10px black; /*Visualizzazione di ombra nera*/
+    height: 600px; /*Altezza delle carte*/
+    vertical-align: top; /*Allineamento verticale verso l'alto*/
+}
+
+.cards:hover{ /*Quando si passa il cursore su un div class cards viene mostrata un'ombra nera*/
+    box-shadow: 2px 2px 10px black;
+}
+
+.card{ /*Div class card con spiegazione analoga al div class cards (riga 129) */
+    width: 25%;
+    display: inline-block;
+    border-radius: 8px;
+    margin: 30px;
+    box-shadow: 2px 2px 10px black;
+}
+
+.card:hover{
+    box-shadow: 2px 2px 10px black;
+}
+
+.image img{ /*tag img del div class image (copertina libro) con larghezza massima, altezza di 350px e leggermente arrotondato*/
+    width: 100%;
+    height:350px;
+    border-radius: 8px;
+}
+
+.title{ /*stilizzazione div class title*/
+    text-align: center;
+    padding: 5px;
+}
+
+.wish{ /*Stilizzazione class wish allineato al centro con uno spazio di 4px*/
+    text-align: center;
+    padding: 4px;
+}
+
+button{ /*css per il tag button*/
+    margin-top: 20px; /*Margini alto e basso di 20px ciascuno*/
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6); /*Colore di sfondo*/
+    border: 0px; /*Nessun bordo*/
+    padding: 20px;
+    border-radius: 10px; /*Bottone arrotondato con raggio di 10px*/
+    cursor: pointer; /*Bottone cliccabile*/
+    color: white; /*Testo bianco*/
+}
+
+button:hover{ /*Quando il cursore passa sul bottone modifica i parametri con una transizione di 0.3 secondi*/
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    box-shadow: 2px 2px 8px black;
+    transition: 0.3s;
+}
+
+.wh{ /*class wh con font indicato, dimensione e posizione centrati*/
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase; /*Il contenuto deve essere tutto in maiuscolo per una migliore visualizzazione*/
+}

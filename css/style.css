@@ -1,0 +1,122 @@
+:root { /*css relativo all'elemento html*/
+    font-size: 100%; 
+    font-size: 16px;
+    line-height: 1.5; /*Altezza di una linea*/
+    --primary-blue: #233975; /*Definizione del colore*/
+
+}
+body { /*css relativo al body del file in cui é incluso*/
+    padding: 0; /*Nessuno spazio*/
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /*Famiglia di font in utilizzo*/
+    font-weight: 500; /*Spessore del font*/
+}
+h1{ /*Stile per il tag h1*/
+    font-size: 2.25rem; /*Dimensione del font*/
+    font-weight: 700; /*Spessore del font*/
+}
+h2{ /*Stile per il tag h2*/
+    font-size: 1.5rem; /*Dimensione font*/
+    font-weight: 700; /*Spessore font*/
+}
+a{ /*Stile per il tag anchor*/
+    text-decoration: none; /*Nessuna decorazione: sottolineatura, barratura ecc...*/
+    color: var(--primary-blue); /*Colore definito in :root*/
+}
+a:hover { /*Quando il cursore passa sul link attiva la sottolineature*/
+    text-decoration: underline;
+}
+.small{ /*Stile per il class small (parte legale di index.php)*/
+  font-size: 80%; /*Dimensione font ridotta a 80%*/
+  text-align: center; /*Testo centrato*/
+}
+.split-screen { /*Stile per il div class split-screen*/
+    display: flex; /*Visualizzazione di tipo flex con elementi direzionati in modalitá colonna*/
+    flex-direction: column;
+}
+.left { /*Stile per il div class left (sinistra della pagina index.php) con altezza preimpostata*/
+    height: 200px;
+}
+.left, .right { /*Stile per la parte sinistra e destra di index.php*/
+    display: flex; /*Tipo di visualizzazione flex con elementi centrati*/
+    justify-content: center;
+    align-items: center;
+}
+.left { /*Per la parte sinistra viene impostata l'immagine di background in modo che copra lo spazio disponibile*/
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/books.jpg");
+    background-size: cover;
+}
+.left .copy{ /*Stile per parte sinistra e div class copy*/
+    color: white;
+    text-align: center;
+}
+.left p{ /*Per il testo appartenente a class left lo spessore del font é di 400*/
+    font-weight: 400;
+}
+.right .copy{ /*Per la parte destra e per copy imposta il colore a nero la centratura*/
+    color: black;
+    text-align: center;
+}
+.right .copy p{
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+}
+.right form{
+    width: 328px;
+}
+form input[type="text"], 
+form input[type="email"], 
+form input[type="password"] { /*Per i dati selezionati (gli input del form) imposta le seguenti proprietá*/
+    display: block; /*imposta tipo di visualizzazione*/
+    width: 100%; /*Occupa tutta la larghezza disponibile*/
+    box-sizing: border-box; /*Tipo di bordo per gli input selezionati*/
+    border-radius: 8px; /*Con angoli arrotondati*/
+    border: 1px solid #c4c4c4; /*Con bordo spesso 1px e del colore selezionato*/
+    padding: 1em;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+}
+label{ /*Ogni label del file in cui é incluso*/
+    display: block; /*Tipo di visualizzazione*/
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem; /*Dimensione del font*/
+}
+.input-container.password {
+    position: relative;
+}
+.input-container.password i{ /*Stile per i tag i di input-container e password*/
+    position: absolute;
+    top: 42px;
+    right: 16px;
+}
+
+.signup-btn{ /*Stile per il tasto di registrazione*/
+    display: block; /*Imposto tipo di visualizzazione*/
+    width: 100%; /*Occupa tutta la larghezza*/
+    background: var(--primary-blue); /*Imposta colore sfondo definito in :root*/
+    color: white; /*Colore del testo bianco*/
+    font-weight: 700; /*Spessore del font*/
+    border: none; /*Nessn bordo per il bottone*/
+    padding: 1rem;
+    border-radius: 8px; /*Bottone arrotondato*/
+    font-size: 0.75rem; /*Dimensione del font*/
+    text-transform: uppercase; /*Tutto in maiuscolo*/
+    letter-spacing: 0.5px; /*Distanziamento tra lettere*/
+}
+.signup-btn:hover{ /*Quando il cursore passa sul bottone*/
+    background: #2c4893; /*Cambia il colore di background*/
+    cursor: pointer; /*Elemento cliccabile*/
+}
+/*Utilizzo di media per visualizzazione responsive*/
+@media screen and (min-width: 900px){
+    .split-screen{ /*Cambia il posizionamento dei div per una facile visualizzazione*/
+        flex-direction: row;
+        height: 100vh;
+    }
+    .left,
+    .right{
+        display: flex;
+        width: 50%;
+        height: auto;
+    }
+}

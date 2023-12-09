@@ -1,0 +1,27 @@
+table{ /*Stile per la tabella mostrata in wishlist.php*/
+    border-collapse:collapse; /*Elimina lo spazio tra i bordi*/
+    border-radius: 12px; /*Angoli arrotondati di 12 px*/
+    box-shadow: 0 5px 10px #e1e5ee; /*Ombra in background*/
+    background-color:white; /*Colore di background bianco*/
+    text-align: left; /*Allineamento del testo a sinistra*/
+    overflow: hidden; /*Specifica cosa fare se il contenuto eccede lo spazio di visualizzazione: nascondi*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+thead{ /*Intestazione della tabella*/
+    box-shadow: 0 5px 10px #e1e5ee;
+}
+
+th{ /*Elementi della tabella*/
+    padding: 1rem 2rem;
+    max-width: 250px;
+    text-transform: uppercase; /*Elementi in maiuscolo*/
+    letter-spacing: 0.1rem; /*Spazio tra le lettere*/
+    font-size: 0.7rem;/*Dimensione del font*/
+    font-weight: 900; /*Spessore del font*/
+}
+
+td{
+    padding: 1rem;
+}

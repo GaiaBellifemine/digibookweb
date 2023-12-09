@@ -1,0 +1,62 @@
+<!DOCTYPE html>  <!-- questa pagina serve per implementare l'header-->
+<html>
+    <head>
+        <meta name="viewport" content="with=device-width, initial=scale=1.0"><!--Adatta le dimensioni all'area di visualizzazione-->
+        <title>DigiBook</title><!--Titolo della pagina mostrata-->
+        <link rel="stylesheet" href="css/homepage.css"> <!--Collegamento al css-->
+        <link rel="preconnect" href="https://fonts.gstatic.com"><!--Collegamento ai font da utilizzare-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"><!--Font utilizzato-->
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet"><!--Contenuto icone font-awesome da cdn (accesso link)--> 
+        <link rel="stylesheet" 
+            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
+            crossorigin="anonymous"><!--Directory cloud dove sono presenti i font-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!--Preparazione all'utilizzo di ajax-->
+
+        <!-- Inserimento della favicon per i vari dispositivi -->
+        <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="images/favicon//apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/favicon//apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="images/favicon//apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/favicon//apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="images/favicon//apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="images/favicon//apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="images/favicon//apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon//apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon//android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon//favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="images/favicon//favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon//favicon-16x16.png">
+        <link rel="manifest" href="images/favicon//manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="images/favicon//ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        
+    </head>
+    <body>
+        <section class="header"> <!--Header della pagina: Banner, barra navigazione, barra di ricerca-->
+            <nav>
+                <a href="homepage.php"><img src="images/banner.png"></a><!--Logo digibook con reference a homepage.php-->
+                <div class="nav-links" id="navLinks"><!--Div per i link della barra di navigazione-->
+                    <i class="fa fa-times" id="hide"></i><!--Icona per nascondere il menu laterale (solo in modalit&agrave; responsive)-->
+                    <ul><!--Lista link navbar-->
+                        <li><a href="homepage.php">HOME</a></li>
+                        <li><a href="aboutus.php">ABOUT US</a></li>
+                        <li><a href="profile1.php">PROFILO</a></li>
+                        <li><a href="php/logout.php">LOGOUT</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" id="show"></i> <!--Icona per mostrare il menu laterale (solo in modalit&agrave; responsive)-->
+            </nav>
+
+            <div id="search-10" class="widget_search"><!--Div per la barra di ricerca-->
+                <form class="cercalibro" action="cercalibro.php" method="post"><!--Form per l'invio dei dati tramite POST alla pagina cercalibro.php-->
+                    <div style="text-align: right;"><!--div posizionato a destra-->
+                        <p style="position: absolute; bottom: 0; left: 0; width: 98%;"> 
+                            <input type="text" placeholder="Cerca un libro.." name="cerca" size="40"><!--Barra di ricerca con suggerimento (placeholder)-->   
+                            <button type="submit" class="search"><i class="fas fa-search"></i></button><!--Tasto per inviare i dati tramite form-->
+                        </p>  
+                    </div>
+                </form>
+            </div>
+        </section>

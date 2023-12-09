@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/share.css"> <!--collegamento al file css-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--adatta la pagina alla visualizzazione-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>  <!-- necessario per l'utilizzo di ajax-->
+     <title>DigiBook</title> <!--titolo della pagina-->
+   </head>
+<body>
+  <div class="container"> <!--container principale-->
+    <div class="title"> <!--div per titolo e link di reindirizzamento-->
+      Condividi un libro
+      <a href="profile1.php">Profilo</a>
+      <a href="homepage.php">Homepage</a>
+    </div>
+    <div class="content"> <!--div per il contenuto da caricare sul database-->
+      <form id="upload" method="post"> <!--contenuto dati da inviare tramite post-->
+        <div class="user-details">
+          <div class="input-box"> <!--div che contiene l'input del titolo-->
+            <span class="details">Titolo</span>
+            <input type="text" id="titolo" name="titolo" placeholder="Inserisci titolo.."> <!--area di testo (breve) con suggerimento-->
+          </div>
+          <div class="input-box"><!--div che contiene l'input dell'autore-->
+            <span class="details">Autore</span>
+            <input type="text" id="autore" name="autore" placeholder="Inserisci autore.."><!--area di testo (breve) con suggerimento-->
+          </div>
+          <div class="input-box"><!--div che contiene l'input della descrizione-->
+            <span class="details">Descrizione</span>
+            <textarea id="descrizione" name="descrizione" placeholder="Inserisci descrizione.." style="height:200px"></textarea><!--area di testo con suggerimento-->
+          </div>
+          <div class="input-box"><!--div che contiene l'input della copertina-->
+            <span class="details">Carica copertina</span>
+            <input type="file" name="file" id="file"><!--input di dato specifico per i file-->
+          </div>
+        </div>
+        <div class="button">
+            <input type="submit" value="Carica libro" name="submit" class="signup-btn"> <!--tasto per l'invio dei dati del form-->
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    $("form#upload").submit(function(e) { // si verifica di aver cliccato il bottone con id "upload" del form
+    e.preventDefault(); 
+    /* si usa FormData perché non é; possibile serializzare i dati del form.
+    Con l'utilizzo di FormData é; possibile ottenere tipi di dati differenti dallo stesso form */
+    var formData = new FormData(this); //this si riferisce all'id "upload" del form
+
+    $.ajax({
+        url: "php/upload.php", // si specifica il percorso del file php che verr&agrave; eseguito in background 
+        type: 'POST',
+        data: formData, // associo ad ajax i dati ricavati con formData (riga 49)
+        async: false, // si attende una risposta del php prima di continuare con l'esecuzione
+        success: function (data) { // se la richiesta va a buon fine, avvia una funzione con i dati ricavati
+          if(data=='OK'){ // se il php ha restituito "OK", allora (continua nelle righe successive): 
+            alert("Libro correttamente inserito"); // avverte l'utente che l'operazione di upload é; andata a buon fine
+					  window.location='profile1.php'; // e reindirizza l'utente al suo profilo
+				 }
+				 else if(data=='ERROR'){ //...altrimenti, se ha resituito "ERROR", avverte l'utente con un generico errore
+					 alert("Oops, c'é qualcosa che non va");
+				 }
+         else if(data=='EMPTY'){ //...altrimenti, se ha restituito "EMPTY", avvisa di dover compilare tutti i campi
+           alert("Tutti i campi devono essere inseriti");
+         }
+         else if(data=='IMAGE'){ //...altrimenti, se ha restituito "IMAGE", l'immagine non é; stata inserita e quindi si avvisa l'utente di inserirla
+           alert("Inserisci una immagine");
+         }
+         else alert(data); //...altrimenti si restituisce un generico errore
+        },
+        cache: false, 
+        contentType: false, // necessario per form multipart/form-data che contengono file (infatti, l'immagine di copertina é; un file). 
+        processData: false // in questo modo jquery non convertir&agrave; formData in una stringa
+    });
+});
+  </script>
+
+</body>
+</html>
